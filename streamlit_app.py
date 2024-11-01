@@ -6,7 +6,7 @@ import plotly.express as px
 from PIL import Image
 
 st.title("Real_Time_Stock_market")
-st.image('stock.jpg',width=500)
+# st.image('stock.jpg',width=500)
 st.sidebar.title("Please provied the following")
 ticker_symbol=st.sidebar.text_input('enter the ticker:')                
 start_date=st.sidebar.date_input("start_date",value=None)
