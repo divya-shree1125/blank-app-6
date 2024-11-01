@@ -14,7 +14,8 @@ end_date=st.sidebar.date_input("end_date",value=None)
 
 ticker=yf.Ticker(ticker_symbol)
 historical_data=ticker.history(start=start_date,end=end_date)
-stockdata=yf.download(ticker_symbol,start=start_date,end=end_date)
+if start_date is not None and end_date is not None:
+    stockdata=yf.download(ticker_symbol,start=start_date,end=end_date)
 
 price_tab,chart_tab,hist,fund,news=st.tabs(['Price Movement','Charts','Historical Data','Fundamental','TOP10 NEWS'])
 with price_tab:
