@@ -37,7 +37,7 @@ with chart_tab:
 
 from alpha_vantage.fundamentaldata import FundamentalData
 with fund:
-    key='8S3BBAQJ11XQHZ1O'
+    key='J297RUK080ND90K4'
     fd=FundamentalData(key,output_format='pandas')
     st.subheader(""" :rainbow[BALANCE SHEET]""")
     balance_sheet=fd.get_balance_sheet_annual(ticker_symbol)[0]
