@@ -18,12 +18,12 @@ stockdata=yf.download(ticker_symbol,start=start_date,end=end_date)
 
 price_tab,chart_tab,hist,fund,news=st.tabs(['Price Movement','Charts','Historical Data','Fundamental','TOP10 NEWS'])
 with price_tab:
-    st.write(f""" :rainbow[Price Movement {ticker_symbol}]""")
+    st.write(f""" :rainbow[Price Movement {ticker}]""")
     st.write(stockdata)
     csv=stockdata.to_csv().encode('utf-8')
     st.download_button(label=""" :rainbow[Download CSV]""",data=csv,file_name=f"{ticker_symbol}_Pricedata.csv",mime='text/csv')
 with hist:
-    st.write(f""" :rainbow[Historical Data {ticker_symbol}]""")
+    st.write(f""" :rainbow[Historical Data {ticker}]""")
     st.write(historical_data)
     csv=historical_data.to_csv().encode('utf-8')
     st.download_button(label=""":rainbow[Download CSV]""",data=csv,file_name=f"{ticker_symbol}_historicaldata.csv",mime='text/csv')
@@ -40,12 +40,12 @@ with fund:
     key='J297RUK080ND90K4'
     fd=FundamentalData(key,output_format='pandas')
     st.subheader(""" :rainbow[BALANCE SHEET]""")
-    balance_sheet=fd.get_balance_sheet_annual(ticker_symbol)[0]
+    balance_sheet=fd.get_balance_sheet_annual(ticker)[0]
     bs=balance_sheet.T[2:]
     bs.columns=list(balance_sheet.T.iloc[0])
     st.write(bs)
     st.subheader(""" :rainbow[INCOME STATEMENT]""")
-    income_statement=fd.get_income_statement_annual(ticker_symbol)[0]
+    income_statement=fd.get_income_statement_annual(ticker)[0]
     is1=income_statement.T[2:]
     is1.columns=list(income_statement.T.iloc[0])
     st.write(is1)
